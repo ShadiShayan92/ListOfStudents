@@ -6,16 +6,33 @@ const Student = (props) => {
     <div className="students">
       <label>Student Number: {props.id}</label>
       <label for="flname">Name and Family: </label>
-      <input type="text" id="flname" value={props.name}></input>
+      <input
+        type="text"
+        id="flname"
+        value={props.name}
+        onChange={props.nameChanged}
+      ></input>
 
       <label for="class">Class: </label>
-      <input type="text" value={props.classNumber}></input>
+      <input
+        type="text"
+        value={props.classNumber}
+        onChange={props.classNumberChanged}
+      ></input>
 
       <label for="phone-number">Phone number: </label>
-      <input type="number" value={props.phoneNumber}></input>
+      <input
+        type="number"
+        value={props.phoneNumber}
+        onChange={props.phoneNumberChanged}
+      ></input>
 
       <label for="email">Email: </label>
-      <input type="email" value={props.email}></input>
+      <input
+        type="email"
+        value={props.email}
+        onChange={props.emailChanged}
+      ></input>
     </div>
   );
 };

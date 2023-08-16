@@ -34,6 +34,8 @@ function App() {
     },
   ]);
 
+  // change handlers
+
   const nameChangeHandler = (event, id) => {
     const studentIndex = studentsState.findIndex((student) => {
       return student.id === id;

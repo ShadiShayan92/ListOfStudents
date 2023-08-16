@@ -9,6 +9,10 @@ const Students = (props) => {
       classNumber={std.classNumber}
       phoneNumber={std.phoneNumber}
       email={std.email}
+      nameChanged={(event) => props.nameChanged(event, std.id)}
+      classNumberChanged={(event) => props.classChanged(event, std.id)}
+      phoneNumberChanged={(event) => props.numberChanged(event, std.id)}
+      emailChanged={(event) => props.emailChanged(event, std.id)}
     />
   ));
 };
