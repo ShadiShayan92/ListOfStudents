@@ -3,7 +3,7 @@ import Students from "./components/Students/Students";
 import React, { useState } from "react";
 
 function App() {
-  const [students, setStudents] = useState([
+  const [studentsState, setStudents] = useState([
     {
       id: 0,
       name: "Shadi",
@@ -33,9 +33,60 @@ function App() {
       email: "sarah@gmail.com",
     },
   ]);
+
+  const nameChangeHandler = (event, id) => {
+    const studentIndex = studentsState.findIndex((student) => {
+      return student.id === id;
+    });
+    const student = { ...studentsState[studentIndex] };
+    student.name = event.target.value;
+    const students = [...studentsState];
+    students[studentIndex] = student;
+    setStudents(students);
+  };
+
+  const classChangeHandler = (event, id) => {
+    const studentIndex = studentsState.findIndex((student) => {
+      return student.id === id;
+    });
+    const student = { ...studentsState[studentIndex] };
+    student.classNumber = event.target.value;
+    const students = [...studentsState];
+    students[studentIndex] = student;
+    setStudents(students);
+  };
+
+  const numberChangeHandler = (event, id) => {
+    const studentIndex = studentsState.findIndex((student) => {
+      return student.id === id;
+    });
+    const student = { ...studentsState[studentIndex] };
+    student.phoneNumber = event.target.value;
+    const students = [...studentsState];
+    students[studentIndex] = student;
+    setStudents(students);
+  };
+
+  const emailChangeHandler = (event, id) => {
+    const studentIndex = studentsState.findIndex((student) => {
+      return student.id === id;
+    });
+    const student = { ...studentsState[studentIndex] };
+    student.email = event.target.value;
+    const students = [...studentsState];
+    students[studentIndex] = student;
+    setStudents(students);
+  };
+
   return (
     <div className="App">
-      <Students studentsList={students} />
+      <Students
+        studentsList={studentsState}
+        nameChanged={nameChangeHandler}
+        classChanged={classChangeHandler}
+        numberChanged={numberChangeHandler}
+        emailChanged={emailChangeHandler}
+      />
     </div>
   );
 }
