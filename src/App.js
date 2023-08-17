@@ -1,6 +1,7 @@
 import "./App.css";
 import Students from "./components/Students/Students";
 import React, { useState } from "react";
+import Button from "./components/UI/button/button";
 
 function App() {
   const [studentsState, setStudents] = useState([
@@ -33,6 +34,8 @@ function App() {
       email: "sarah@gmail.com",
     },
   ]);
+
+  const [toggle, setToggle] = useState(false);
 
   // change handlers
 
@@ -86,8 +89,15 @@ function App() {
     setStudents(students);
   };
 
+  const toggleHandler = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <div className="App">
+      <Button btnType="success" clicker={toggleHandler}>
+        Change display
+      </Button>
       <Students
         studentsList={studentsState}
         nameChanged={nameChangeHandler}
@@ -95,6 +105,7 @@ function App() {
         numberChanged={numberChangeHandler}
         emailChanged={emailChangeHandler}
         deleted={deleteStudent}
+        toggle={toggle}
       />
     </div>
   );
