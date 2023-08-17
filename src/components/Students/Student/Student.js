@@ -1,5 +1,6 @@
 import React from "react";
 import "./Students.css";
+import Button from "../../UI/button/button";
 
 const Student = (props) => {
   return (
@@ -34,8 +35,13 @@ const Student = (props) => {
         onChange={props.emailChanged}
       ></input>
 
-      <label style={{ color: "red" }} onClick={props.deleted}>
+      {/* <label style={{ color: "red" }} onClick={props.deleted}>
         Delete
+      </label> */}
+      <label>
+        <Button btnType="danger" clicker={props.deleted}>
+          Delete
+        </Button>
       </label>
     </div>
   );
