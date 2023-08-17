@@ -1,6 +1,6 @@
 import "./App.css";
 import Students from "./components/Students/Students";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./components/UI/button/button";
 
 function App() {
@@ -35,7 +35,22 @@ function App() {
     },
   ]);
 
+  const [arrayHolder, setArrayHolder] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [searchBarValue, setSearchBarvalue] = useState("");
+  useEffect(() => {
+    setArrayHolder(studentsState);
+  }, []);
+
+  const searchFilterFunction = (event) => {
+    const itemData = arrayHolder.filter((item) => {
+      const itemData = item.name.toUpperCase();
+      const textData = event.target.value.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+    setStudents(itemData);
+    setSearchBarvalue(event.target.value);
+  };
 
   // change handlers
 
@@ -95,6 +110,11 @@ function App() {
 
   return (
     <div className="App">
+      <input
+        type="text"
+        value={searchBarValue}
+        onChange={searchFilterFunction}
+      ></input>
       <Button btnType="success" clicker={toggleHandler}>
         Change display
       </Button>
