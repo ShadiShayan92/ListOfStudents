@@ -33,6 +33,10 @@ const Student = (props) => {
         value={props.email}
         onChange={props.emailChanged}
       ></input>
+
+      <label style={{ color: "red" }} onClick={props.deleted}>
+        Delete
+      </label>
     </div>
   );
 };

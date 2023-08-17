@@ -80,6 +80,12 @@ function App() {
     setStudents(students);
   };
 
+  const deleteStudent = (index) => {
+    const students = [...studentsState];
+    students.splice(index, 1);
+    setStudents(students);
+  };
+
   return (
     <div className="App">
       <Students
@@ -88,6 +94,7 @@ function App() {
         classChanged={classChangeHandler}
         numberChanged={numberChangeHandler}
         emailChanged={emailChangeHandler}
+        deleted={deleteStudent}
       />
     </div>
   );

@@ -13,6 +13,7 @@ const Students = (props) => {
       classNumberChanged={(event) => props.classChanged(event, std.id)}
       phoneNumberChanged={(event) => props.numberChanged(event, std.id)}
       emailChanged={(event) => props.emailChanged(event, std.id)}
+      deleted={props.deleted}
     />
   ));
 };
